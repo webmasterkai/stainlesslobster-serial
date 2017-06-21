@@ -21,18 +21,18 @@ Example: 12.38
 ### Values
 
 1. `compressorStatus`: **Compressor status** - Is the compressor running.
-  * `0` = Not running
-  * `1` = Running at min RPM
-  * `2` = Running at max RPM
+    * `0` = Not running
+    * `1` = Running at min RPM
+    * `2` = Running at max RPM
 1. `defrostStatus`: **Defrost mode status** - Is the system defrosting.
-  * `0` = not in defrost mode
-  * `1` = Defrosting
+    * `0` = not in defrost mode
+    * `1` = Defrosting
 1. `boxFan`: **Fridge Fan status** - Is the fan running inside the box.
-  * `0` = Not running
-  * `1` = Running
+    * `0` = Not running
+    * `1` = Running
 1. `compressorFan`: **Room Room Fan status** - Is the fan running in the compressor room.
-  * `0` = Not running
-  * `1` = Running
+    * `0` = Not running
+    * `1` = Running
 1. `boxTemp`: **Box temp** - Measured on fan enclosure. Localized (F/C). Float value with two digits or "nan" if no sensor is present.  Example: `39.05`
 1. `controllerTemp`: **Ambient temp** - Temperature of the head unit. Localized (F/C). Float value with two digits or "nan" if no sensor is present.  Measured in the head unit enclosure. Example: `75.72`.
 1. `boxHumidity`: **Box relative humidity** - Relative humidity percentage. Measured on fan enclosure. Float value representing relative humidity in percent. Example: `55.72`.
