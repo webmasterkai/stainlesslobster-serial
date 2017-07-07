@@ -9,11 +9,6 @@ Every 60 seconds the fridge optimizer controller will write to the usb/serial po
 Float value representing relative humidity in percent
 
 
-
-
-
-
-
 Float value with two effective decimals
 Example: 12.38
 
@@ -41,6 +36,21 @@ Example: 12.38
 
 ### Future Values
 1. `compressorAmps`: **Compressor Amps** - Number of amps being consumed by the compressor.
+
+
+Output: 2,0,1,0,18.32,77.00,66.4Initialization complete!
+Firmware version: 4.3.0.0
+Output: 2,0,1,0,19.22,77.00,68.40,17.00,13.10
+Output: 2,0,1,1,19.22,84.20,68.50,31.00,12.80
+Output: 2,0,1,1,19.22,84.20,68.50,32.00,13.20
+Output: 2,0,1,0,19.22,77.00,68.50,17.00,13.10
+Output: 2,0,1,1,19.22,84.20,68.60,31.00,12.90
+Output: 2,0,1,0,19.40,78.80,68.70,16.00,13.30
+Output: 2,0,1,0,19.40,78.80,68.80,16.00,12.90
+Output: 2,0,1,0,19.58,78.80,68.90,16.00,12.90
+Output: 2,0,1,0,19.40,78.80,68.90,16.00,13.30
+Output: 2,0,1,0,19.58,78.80,68.90,16.00,13.40
+Output: 2,0,1,0,19.58,78.80,69.00,16.00,13.20
 
 ### Possible Json Format
 
