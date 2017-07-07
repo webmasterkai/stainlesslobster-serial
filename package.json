@@ -1,7 +1,7 @@
 {
-  "name": "@kaicurry/stainlesslobster-serial",
-  "version": "0.0.1",
-  "description": "## Proposal",
+  "name": "stainlesslobster-serial",
+  "version": "0.1.1",
+  "description": "Information and javascript parsing example for the Stainless Lobster serial output.",
   "main": "index.js",
   "scripts": {
     "test": "jest --watch"
