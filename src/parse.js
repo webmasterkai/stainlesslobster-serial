@@ -1,15 +1,18 @@
 import {
-  cond, eq, every, flow, head, identity, isNumber, map, over, overEvery,
-  replace, size, split, stubTrue, startsWith, toNumber, zipObject,
+  cond, eq, every, flow, get, isNumber, map, overEvery,
+  replace, set, size, split, stubTrue, startsWith, toNumber, zipObject,
 } from 'lodash/fp'
-import { createObj } from 'cape-lodash'
+import { createObj, setWith } from 'cape-lodash'
 import { fields } from './schema'
 
-export function createError(type, message) {
-  return value => ({ error: true, message, type, value })
+export function createError(message) {
+  return flow(
+    set('error', true),
+    set('message', message)
+  )
 }
-export const basicError = createError('none', 'Ill formed value or parser not found for line type.')
-export const dataError = createError('data', 'Invalid length of values or values not numbers.')
+export const basicError = createError('Ill formed value or parser not found for line type.')
+export const dataError = createError('Invalid length of values or values not numbers.')
 
 export const dataLineStartsWith = 'Output: '
 export const isDataOutput = startsWith(dataLineStartsWith)
@@ -25,19 +28,23 @@ export const getDataElements = flow(
   split(','),
   map(toNumber)
 )
-export const createDataObj = flow(
-  zipObject(fields),
-  createObj('value'),
-)
+export const createDataObj = zipObject(fields)
 export const parseDataLine = flow(
-  over([getDataElements, identity]),
+  set('type', 'data'), // Set the type of notice this is.
+  setWith('data', 'line', getDataElements), // Set data field with basic processing of line.
   cond([
-    [flow(head, isValidDataLine), flow(head, createDataObj)],
+    [flow(get('data'), isValidDataLine), setWith('value', 'data', createDataObj)],
     [stubTrue, dataError],
   ])
 )
-
-export const parseLine = cond([
-  [isDataOutput, parseDataLine],
-  [stubTrue, basicError],
-])
+export const prepareLine = flow(
+  createObj('line'), // Save line string value to 'line' property.
+  set('type', 'none'), // Start with unknown type.
+)
+export const parseLine = flow(
+  prepareLine,
+  cond([
+    [isDataOutput, parseDataLine],
+    [stubTrue, basicError],
+  ])
+)
