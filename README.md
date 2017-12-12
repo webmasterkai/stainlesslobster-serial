@@ -25,10 +25,7 @@ Every 60 seconds the fridge optimizer controller will write to the usb/serial po
 1. `boxHumidity`: **Box relative humidity** - Relative humidity percentage. Measured on fan enclosure. Float value representing relative humidity in percent. Example: `55.72`.
 1. `controllerHumidity`: **Ambient relative humidity** - Relative humidity percentage. Measured in the head unit enclosure. Float value representing relative humidity in percent. Example: `73.21`.
 1. `compressorVolts`: **System Voltage** - Voltage measured at head unit.
-
-_________________________
-
-### Future Values
+1. `tempScale`: **Temperature Scale** - Temp values are sent in `F` or `C` based on choice user selected in setup. This tells us scale is currently being used.
 1. `compressorAmps`: **Compressor Amps** - Number of amps being consumed by the compressor.
 
 
@@ -53,3 +50,7 @@ _________________________
   }
 }
 ````
+
+### SignalK Output
+
+Need some mapping of fields to SK paths.
